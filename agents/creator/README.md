@@ -28,10 +28,12 @@
 ```json
 {
   "context": {
-    "character_id": "nick_v1",
-    "voice_profile_ref": "vault://voice-profile/nick_v1",
-    "behavioral_state": {
-      "tone": "ироничный, дружелюбный"
+    "profile": {
+      "character_id": "nick_v1",
+      "voice_profile_ref": "vault://voice-profile/nick_v1",
+      "behavioral_state": {
+        "tone": "ироничный, дружелюбный"
+      }
     },
     "brief": {
       "campaign_id": "camp_2026_demo",

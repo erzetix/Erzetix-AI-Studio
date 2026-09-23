@@ -41,9 +41,12 @@
 ```json
 {
   "context": {
-    "character_id": "nick_v1",
-    "identity_ref": "vault://character-dna/nick_v1",
-    "voice_profile_ref": "vault://voice-profile/nick_v1"
+    "profile": {
+      "character_id": "nick_v1",
+      "identity_ref": "vault://character-dna/nick_v1",
+      "voice_profile_ref": "vault://voice-profile/nick_v1"
+    },
+    "brief": { "...": "бриф кампании" }
   },
   "draft_bundle": {
     "campaign_id": "camp_2026_demo",

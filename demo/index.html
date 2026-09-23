@@ -254,23 +254,24 @@ const CAMPAIGNS=[
 
 const MATS={
  c1:[
-  {img:'../examples/sample-outputs/nick-01-night-hollywood.jpg',stub:'Портрет, ночная съёмка',fmt:'Публикация с изображением',v:'approved',checks:['внешность','бренд','контент','бриф']},
+  {img:'../examples/sample-outputs/nick-01-night-hollywood.jpg',stub:'Портрет, ночная съёмка',fmt:'Публикация с изображением',v:'approved',checks:['внешность','бренд','контент','бриф','репутация']},
   {img:'../examples/sample-outputs/nick-03-fullbody-outdoor.jpg',stub:'Общий план, полный рост',fmt:'Публикация с изображением',v:'revision_required',bad:['внешность'],to:'Направлен визуализатору · цикл 2 из 3',note:'Соответствие эталонной внешности на общем плане ниже порогового значения.'},
-  {img:'../examples/sample-outputs/nick-06-restaurant-evening.jpg',stub:'Интерьер, тёплый свет',fmt:'Серия изображений',v:'approved',checks:['внешность','бренд','контент','бриф']},
-  {img:'../examples/sample-outputs/nick-08-product-in-frame.jpg',stub:'Продукт в кадре',fmt:'Публикация с изображением',v:'blocked',bad:['бриф'],note:'Материал нарушает ограничение брифа. Раскрыть концепт без нарушения невозможно.'}
+  {img:'../examples/sample-outputs/nick-06-restaurant-evening.jpg',stub:'Интерьер, тёплый свет',fmt:'Серия изображений',v:'approved',checks:['внешность','бренд','контент','бриф','репутация']},
+  {img:'../examples/sample-outputs/nick-08-product-in-frame.jpg',stub:'Продукт в кадре',fmt:'Публикация с изображением',v:'rejected',bad:['бриф'],note:'Материал нарушает ограничение брифа. Раскрыть концепт без нарушения невозможно, доработка не назначается.'}
  ],
  c2:[
-  {img:'../examples/sample-outputs/nick-02-daylight-street.jpg',stub:'Крупный план, дневной свет',fmt:'Короткое видео',v:'approved',checks:['внешность','бренд','контент','бриф']},
+  {img:'../examples/sample-outputs/nick-02-daylight-street.jpg',stub:'Крупный план, дневной свет',fmt:'Короткое видео',v:'approved',checks:['внешность','бренд','контент','бриф','репутация']},
   {img:'../examples/sample-outputs/nick-05-harsh-sunlight.jpg',stub:'Съёмка на прямом солнце',fmt:'Публикация с изображением',v:'escalated',bad:['бренд'],note:'Правила бренда клиента недоступны. Проверка не выполнена, автоматическое одобрение не допускается.'},
   {img:'../examples/sample-outputs/reel-01-preview.jpg',stub:'Кадр из видеоматериала',fmt:'Короткое видео',v:'revision_required',bad:['бриф'],to:'Направлен креатору · цикл 1 из 3',note:'Реплика персонажа не соответствует ограничению «без резких высказываний».'}
  ],
  c3:[
-  {img:'../examples/sample-outputs/nick-04-car-interior.jpg',stub:'Средний план, интерьер авто',fmt:'Публикация с изображением',v:'approved',checks:['внешность','бренд','контент','бриф']},
-  {img:'../examples/sample-outputs/nick-07-with-cat.jpg',stub:'Персонаж с котом',fmt:'Серия изображений',v:'approved',checks:['внешность','бренд','контент','бриф']}
+  {img:'../examples/sample-outputs/nick-04-car-interior.jpg',stub:'Средний план, интерьер авто',fmt:'Публикация с изображением',v:'approved',checks:['внешность','бренд','контент','бриф','репутация']},
+  {img:'../examples/sample-outputs/nick-07-with-cat.jpg',stub:'Персонаж с котом',fmt:'Серия изображений',v:'approved',checks:['внешность','бренд','контент','бриф','репутация']}
  ]
 };
 
 const LOG=[
+ ['Обогащение контекста','Ядро персонажа','Выполнено','—','1',0],
  ['Анализ трендов','Аналитик трендов','Выполнено','—','1',0],
  ['Формирование плана','Стратег','Выполнено','—','1',0],
  ['Подготовка текстов','Креатор','Выполнено','—','1',0],
@@ -279,7 +280,7 @@ const LOG=[
  ['Проверка бренда','Хранитель бренда','Эскалация на модель более высокого уровня','Opus 4.8','1',1]
 ];
 
-const V={approved:['v-ok','Проверку прошёл'],revision_required:['v-rev','Направлен на доработку'],escalated:['v-esc','Передан человеку'],blocked:['v-blk','Заблокирован ограничением']};
+const V={approved:['v-ok','Проверку прошёл'],revision_required:['v-rev','Направлен на доработку'],escalated:['v-esc','Передан человеку'],rejected:['v-blk','Отклонён без доработки']};
 
 let mode='manual', guest=false, current='c1';
 const decided={};
