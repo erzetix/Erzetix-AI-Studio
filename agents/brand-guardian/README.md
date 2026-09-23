@@ -40,8 +40,10 @@
 ```json
 {
   "context": {
-    "character_id": "nick_v1",
-    "identity_ref": "vault://character-dna/nick_v1",
+    "profile": {
+      "character_id": "nick_v1",
+      "identity_ref": "vault://character-dna/nick_v1"
+    },
     "brief": {
       "campaign_id": "camp_2026_demo",
       "constraints": ["без упоминания конкурентов", "без резких высказываний"]
@@ -78,7 +80,8 @@
         "visual_consistency",
         "brand_compliance",
         "content_policy",
-        "brief_constraints"
+        "brief_constraints",
+        "reputational_risk"
       ],
       "escalated_to_senior_model": false
     },
@@ -91,6 +94,7 @@
           "note_id": "nte_001",
           "draft_id": "drf_002",
           "target_agent": "creator",
+          "category": "brief_constraints",
           "issue": "Материал содержит упоминание, нарушающее ограничение брифа",
           "required_action": "Исключить упоминание и переформулировать сообщение"
         }

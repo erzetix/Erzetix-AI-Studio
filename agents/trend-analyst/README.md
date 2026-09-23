@@ -25,16 +25,19 @@
 
 ```json
 {
-  "character_id": "nick_v1",
-  "profile_version": "3.2",
-  "identity_ref": "vault://character-dna/nick_v1",
-  "behavioral_state": {
-    "tone": "ироничный, дружелюбный",
-    "recent_topics": ["..."],
-    "engagement_trend": "growing"
+  "profile": {
+    "character_id": "nick_v1",
+    "profile_version": "3.2",
+    "identity_ref": "vault://character-dna/nick_v1",
+    "behavioral_state": {
+      "tone": "ироничный, дружелюбный",
+      "recent_topics": ["..."],
+      "engagement_trend": "growing"
+    }
   },
   "brief": {
     "campaign_id": "camp_2026_demo",
+    "character_id": "nick_v1",
     "goal": "Повысить вовлечённость аудитории на короткий период",
     "constraints": ["без упоминания конкурентов", "без резких высказываний"]
   }

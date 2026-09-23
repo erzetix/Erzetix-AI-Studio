@@ -14,13 +14,6 @@ from datetime import datetime
 from pydantic import BaseModel, Field
 
 
-class IdentityReference(BaseModel):
-    """Ссылка на защищённые параметры идентичности персонажа."""
-
-    vault_path: str
-    version: str
-
-
 class BehavioralState(BaseModel):
     """Текущее поведенческое состояние персонажа, обновляемое по метрикам кампаний."""
 
@@ -34,8 +27,9 @@ class CharacterProfile(BaseModel):
 
     character_id: str
     display_name: str
-    identity_ref: IdentityReference
-    voice_profile_ref: IdentityReference
+    # Ссылки на защищённое хранилище, а не сами параметры идентичности.
+    identity_ref: str
+    voice_profile_ref: str
     behavioral_state: BehavioralState
     profile_version: str
     updated_at: datetime
@@ -53,7 +47,7 @@ class Brief(BaseModel):
 
 
 class CampaignContext(BaseModel):
-    """Контекст, передаваемый агенту-аналитику трендов и агенту-стратегу."""
+    """Контекст кампании, передаваемый оркестратором каждой последующей подсистеме без изменений."""
 
     profile: CharacterProfile
     brief: Brief
